@@ -1,89 +1,59 @@
 #Source code for TasksBoard+
 
 import mysql.connector as mysql 
-
 mydb=mysql.connect(host="localhost",user="root",passwd="root") 
-
 #mydb=mysql.connect(host="localhost",user="root",passwd="root",database="Employee") 
-
 mycursor=mydb.cursor() 
                         
 try:
-    
     mycursor.execute("Create database Employee") 
-
     mycursor.execute("Use employee") 
-
     #Creating a table for employee's details: 
-
     mycursor.execute("create table emp(Emp_ID int(3) primary key,Name varchar(15),age integer,Designation varchar(120))")
-    
     mycursor.execute("insert into emp values(100,'ADMIN',52,'Admin'),\ (101,'Bhuvanesh',34,'Jr.Tester'),(102,'Harish',45,'Sr.Tester'),\
 (103,'Rohit',60,'Debugging'),(104,'Tharshan',23,'Developer'),(105,'Roshan',45,'Product Manager'),(106,'Pranav',56,'Project Manager'),\
 (107,'Jagadish',32,'HR Manager'),(108,'Adharv',44,'Data Analyst'),(109,'Siva',31,'Program analyst'),\
 (110,'Barath',50,'Full stack developer')")
-    
     mydb.commit() 
 
     #Creating table to store employee's tasks:
-    
     mycursor.execute("Create table Tasks(Emp_Id integer primary key,Taskname varchar(20),Deadline date)") 
-
     #Creating table to enter the status of the employee's tasks: 
-
     mycursor.execute("Create table Comptasks(Emp_ID integer primary  key,Comp_status varchar(3))")
-    
 except:
-
     print()  
 
 #Function to add a new Employee: 
-
 def New_Employee(): 
 
     e_id=int(input("Enter Admin ID:")) 
     if e_id==100:
-        
         def Emp(): 
-
             eid=int(input("Enter Employee's ID:")) 
             name=input("Enter Employee's name:") 
             age=int(input("Enter Employee's age:")) 
             desig=str(input("Enter Employee's designation:")) 
             return eid,name,age,desig
-        
         while True:
-            
             print("Do you want to add new Employees?") 
             ch=input("Enter your option (y/n)?") 
-            if ch.lower()!='n':
-                
+            if ch.lower()!='n' 
                 num=int(input("Enter the number of Employees to be added:")) 
-                for i in range(num):
-                    
+                for i in range(num):                    
                     try:
-                        
                         mycursor.execute("Insert into emp values(%s,%s,%s,%s)",Emp()) 
                         mydb.commit() 
                         print("Details added successfully!") 
-
                     except:
-                        
                         print("Given ID is already in use. Please enter a valid ID.") 
-
             else: 
                 break
-            
     else: 
         print("Invalid Admin ID.") 
-
 #Function to add a new task for an employee:       
-
 def Insert_Tasks(): 
-
     e_id=int(input("Enter Admin ID:")) 
-    if e_id==100:
-        
+    if e_id==100: 
         def Emp_works():
             
             eid=int(input("Enter Employee ID:")) 
