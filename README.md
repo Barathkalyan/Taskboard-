@@ -17,4 +17,5 @@ We have the following modules in Employee mode:
 	To View the Assigned Tasks
 	Confirmation of completion of Tasks
 
-For storing the details of the employee, Tasks assigned and the Status of completion, we have used MySQL and the tables used for storing data are as follows:
+Future Upgradations:
+Creating a UI and making it a full fledged web application with python as backend!
