@@ -18,4 +18,5 @@ We have the following modules in Employee mode:
 	Confirmation of completion of Tasks
 
 Future Upgradations:
-Creating a UI and making it a full fledged web application with python as backend!
+Creating a UI and making it a full fledged web application with python as backend and frontlit for the frontend and flask for additional backend support, work beginning soon!! 
+GOTTA LEARN, RESEARCH AND MAKE SOMETHING MORE USEFUL!!
